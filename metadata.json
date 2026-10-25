@@ -1,0 +1,6 @@
+{
+  "name": "Truques Incríveis Pet - Área de Membros",
+  "description": "Área de membros para tutores ensinarem truques divertidos e práticos para cães com vídeos 9:16, check-in interativo e acompanhamento de progresso.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

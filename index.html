@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      // Shim to prevent Chrome extensions (e.g., Ant Video Downloader) from throwing
+      // "Cannot set property fetch of #<Window> which has only a getter"
+      (function() {
+        try {
+          var origFetch = window.fetch ? window.fetch.bind(window) : window.fetch;
+          var activeFetch = origFetch;
+          Object.defineProperty(window, 'fetch', {
+            configurable: true,
+            enumerable: true,
+            get: function() {
+              return activeFetch;
+            },
+            set: function(fn) {
+              activeFetch = fn;
+            }
+          });
+        } catch (e) {}
+
+        window.addEventListener('error', function(event) {
+          if (event && event.filename && event.filename.indexOf('chrome-extension://') !== -1) {
+            // Prevent noisy third-party extension failures from propagating
+            event.preventDefault();
+          }
+        }, true);
+      })();
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Truques Incríveis Pet - Área de Membros</title>
+    <meta name="description" content="Área de membros para tutores ensinarem truques divertidos e práticos para cães com vídeos 9:16, check-in interativo e acompanhamento de progresso." />
+    <meta property="og:title" content="Truques Incríveis Pet - Área de Membros" />
+    <meta property="og:description" content="Área de membros para tutores ensinarem truques divertidos e práticos para cães com vídeos 9:16, check-in interativo e acompanhamento de progresso." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Outfit:wght@500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
