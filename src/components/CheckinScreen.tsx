@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { Sparkles, Sun, Moon, X } from 'lucide-react';
 import { ThemeMode } from '../types';
-import { sounds } from '../utils/audio';
 
 interface CheckinScreenProps {
   theme: ThemeMode;
@@ -66,10 +65,9 @@ export const CheckinScreen: React.FC<CheckinScreenProps> = ({
       setIsUnlocked(true);
       setIsDragging(false);
       setDragProgress(1);
-      sounds.playUnlockFanfare();
       setTimeout(() => {
         onUnlock(petName.trim());
-      }, 450);
+      }, 250);
     }
   }, [isDragging, isUnlocked, onUnlock, petName]);
 
@@ -197,8 +195,7 @@ export const CheckinScreen: React.FC<CheckinScreenProps> = ({
                   // Allow quick enter if user prefers
                   setDragProgress(1);
                   setIsUnlocked(true);
-                  sounds.playUnlockFanfare();
-                  setTimeout(() => onUnlock(petName.trim()), 300);
+                  setTimeout(() => onUnlock(petName.trim()), 200);
                 }
               }}
               placeholder="Ex: Thor, Mel, Bob, Pipoca..."

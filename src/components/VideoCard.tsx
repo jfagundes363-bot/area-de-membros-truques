@@ -67,12 +67,17 @@ export const VideoCard: React.FC<VideoCardProps> = ({
           onOpenVideo ? 'cursor-pointer transition-transform duration-200 group-hover:scale-[1.02]' : ''
         }`}
       >
-        {/* Imagem de capa (quando colocada) ou fundo preto puro */}
+        {/* Imagem de capa otimizada com lazy loading e decoding assíncrono */}
         {trick.imageUrl ? (
           <img
             src={trick.imageUrl}
             alt={trick.title}
-            className="w-full h-full object-cover"
+            width={195}
+            height={346}
+            loading={trick.id <= 4 ? 'eager' : 'lazy'}
+            decoding="async"
+            fetchPriority={trick.id <= 2 ? 'high' : 'auto'}
+            className="w-full h-full object-cover transition-opacity duration-300"
             referrerPolicy="no-referrer"
             onError={(e) => {
               const target = e.currentTarget;
@@ -94,10 +99,10 @@ export const VideoCard: React.FC<VideoCardProps> = ({
         <button
           onClick={handleFavoriteClick}
           aria-label={isFavorite ? 'Remover dos favoritos' : 'Salvar como favorito'}
-          className={`absolute top-2 right-2 z-20 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-md cursor-pointer ${
+          className={`absolute top-2 right-2 z-20 w-7 h-7 rounded-full flex items-center justify-center transition-all duration-200 backdrop-blur-md cursor-pointer touch-manipulation ${
             isFavorite
               ? 'bg-rose-500/25 border border-rose-500 text-rose-500 scale-105 shadow-sm shadow-rose-500/30'
-              : 'bg-black/60 border border-white/30 text-white hover:bg-black/80 hover:scale-110'
+              : 'bg-black/60 border border-white/30 text-white hover:bg-black/80 hover:scale-110 active:scale-95'
           }`}
         >
           <Heart
@@ -121,7 +126,7 @@ export const VideoCard: React.FC<VideoCardProps> = ({
             <button
               onClick={handleTeachClick}
               aria-label={`Ensinar truque ${trick.title}`}
-              className={`w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1 transition-all duration-150 active:scale-95 shadow-sm cursor-pointer ${
+              className={`w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1 transition-all duration-150 active:scale-95 shadow-sm cursor-pointer touch-manipulation ${
                 isDark
                   ? 'bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 hover:border-neutral-700'
                   : 'bg-neutral-100 hover:bg-neutral-200 text-black border border-neutral-300'

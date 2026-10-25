@@ -240,7 +240,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
       {/* Phone Mockup Frame (Aba de Telefone 9:16) */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative h-[min(86vh,720px)] aspect-[9/16] max-w-[94vw] rounded-[42px] sm:rounded-[48px] border-[8px] sm:border-[12px] border-neutral-900 bg-black shadow-[0_0_80px_rgba(0,0,0,0.95),0_25px_50px_rgba(0,0,0,0.95)] overflow-hidden flex flex-col ring-1 ring-neutral-700/60"
+        className="relative h-[min(88dvh,740px)] aspect-[9/16] max-w-[94vw] rounded-[42px] sm:rounded-[48px] border-[8px] sm:border-[12px] border-neutral-900 bg-black shadow-[0_0_80px_rgba(0,0,0,0.95),0_25px_50px_rgba(0,0,0,0.95)] overflow-hidden flex flex-col ring-1 ring-neutral-700/60"
       >
         {/* Dynamic Island / Top Speaker Notch */}
         <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-24 h-4 bg-black rounded-full z-40 flex items-center justify-between px-2.5 pointer-events-none border border-neutral-800 shadow-inner">
@@ -255,7 +255,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
           onClick={onClose}
           aria-label="Voltar para a Home"
           title="Fechar e voltar para a Home"
-          className="absolute top-3.5 right-3.5 z-50 w-10 h-10 rounded-full bg-black/75 hover:bg-black/95 active:scale-90 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg hover:border-amber-400 group"
+          className="absolute top-3.5 right-3.5 z-50 w-10 h-10 rounded-full bg-black/75 hover:bg-black/95 active:scale-90 text-white backdrop-blur-md border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg hover:border-amber-400 group touch-manipulation"
         >
           <X className="w-5 h-5 stroke-[2.5] group-hover:scale-110 transition-transform" />
         </button>
@@ -274,7 +274,7 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
               playsInline
               autoPlay
               muted={isMuted}
-              preload="auto"
+              preload="metadata"
               onPlaying={() => setIsLoading(false)}
               onCanPlay={() => setIsLoading(false)}
               onTimeUpdate={handleNativeTimeUpdate}
@@ -294,6 +294,9 @@ export const VideoPlayerModal: React.FC<VideoPlayerModalProps> = ({
             <img
               src={trick.imageUrl}
               alt={trick.title}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
               onError={(e) => {

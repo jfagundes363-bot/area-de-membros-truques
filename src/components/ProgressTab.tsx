@@ -217,7 +217,7 @@ export const ProgressTab: React.FC<ProgressTabProps> = ({
                           <button
                             onClick={() => onOpenVideo(trick)}
                             title={`Ensinar truque ${trick.title}`}
-                            className={`w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1 transition-all duration-150 active:scale-95 shadow-sm cursor-pointer ${
+                            className={`w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1 transition-all duration-150 active:scale-95 shadow-sm cursor-pointer touch-manipulation ${
                               isDark
                                 ? 'bg-neutral-900 hover:bg-neutral-800 text-white border border-neutral-800 hover:border-neutral-700'
                                 : 'bg-neutral-100 hover:bg-neutral-200 text-black border border-neutral-300'
@@ -239,7 +239,7 @@ export const ProgressTab: React.FC<ProgressTabProps> = ({
                           <button
                             onClick={() => handleMarkLearned(trick.id)}
                             title="Marcar como aprendido"
-                            className="w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-sm cursor-pointer transition-all active:scale-95 border border-emerald-500/50"
+                            className="w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white shadow-sm cursor-pointer transition-all active:scale-95 border border-emerald-500/50 touch-manipulation"
                           >
                             <Sparkles className="w-3 h-3 text-amber-300 shrink-0" />
                             <span>Aprendeu!</span>
@@ -247,7 +247,7 @@ export const ProgressTab: React.FC<ProgressTabProps> = ({
                           <button
                             onClick={() => handleTeachLater(trick.id)}
                             title="Remover do aprendizado e ensinar depois"
-                            className={`w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 shadow-sm cursor-pointer transition-all active:scale-95 border ${
+                            className={`w-full py-1.5 sm:py-2 px-2 rounded-lg font-bold text-[11px] sm:text-xs flex items-center justify-center gap-1.5 shadow-sm cursor-pointer transition-all active:scale-95 border touch-manipulation ${
                               isDark
                                 ? 'bg-neutral-900 hover:bg-neutral-800 text-neutral-300 hover:text-white border-neutral-700 hover:border-amber-400'
                                 : 'bg-white hover:bg-neutral-100 text-neutral-700 hover:text-neutral-900 border-neutral-300 hover:border-amber-500'

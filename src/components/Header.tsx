@@ -25,6 +25,11 @@ export const Header: React.FC<HeaderProps> = ({
             <img
               src="https://i.imgur.com/1WEvgHo.png"
               alt="Truques Pet VIP"
+              width={36}
+              height={36}
+              loading="eager"
+              decoding="async"
+              fetchPriority="high"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
               onError={(e) => {

@@ -142,7 +142,6 @@ export default function App() {
     const updatedName = enteredPetName || petProfile.name || 'Pipoca';
     setPetProfile((prev) => ({ ...prev, name: updatedName }));
     setIsUnlocked(true);
-    showToast(`Bem-vindo, tutor de ${updatedName}! 🐾`);
   };
 
   const handleRestartCheckin = () => {
@@ -234,7 +233,7 @@ export default function App() {
 
   return (
     <div
-      className={`min-h-screen w-full flex flex-col font-sans transition-colors duration-200 ${
+      className={`min-h-screen w-full flex flex-col font-sans transition-colors duration-200 overflow-x-hidden ${
         isDark ? 'bg-black text-white' : 'bg-white text-neutral-900'
       }`}
     >
@@ -257,7 +256,7 @@ export default function App() {
       {/* Main Content Area based on Active Tab */}
       <div className="flex-1 w-full max-w-7xl mx-auto flex flex-col">
         {activeTab === 'inicio' && (
-          <main className="w-full pb-24">
+          <main className="w-full pb-28 sm:pb-24">
             {/* Standard Header with Greeting */}
             <Header
               petName={petProfile.name}

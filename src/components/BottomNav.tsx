@@ -47,9 +47,9 @@ export const BottomNav: React.FC<BottomNavProps> = ({
   return (
     <nav
       aria-label="Navegação Principal"
-      className={`fixed bottom-0 left-0 right-0 z-40 backdrop-blur-xl transition-colors duration-200 border-t ${
+      className={`fixed bottom-0 left-0 right-0 z-40 backdrop-blur-xl transition-colors duration-200 border-t touch-manipulation pb-[env(safe-area-inset-bottom)] ${
         isDark
-          ? 'bg-black/90 border-neutral-800 text-neutral-400'
+          ? 'bg-black/95 border-neutral-800 text-neutral-400'
           : 'bg-white/95 border-neutral-200 text-neutral-600 shadow-lg'
       }`}
     >
@@ -60,7 +60,7 @@ export const BottomNav: React.FC<BottomNavProps> = ({
             <button
               key={item.id}
               onClick={() => onChangeTab(item.id)}
-              className={`relative flex flex-col items-center justify-center h-full min-h-[44px] min-w-[44px] transition-all select-none ${
+              className={`relative flex flex-col items-center justify-center h-full min-h-[44px] min-w-[44px] transition-all select-none touch-manipulation cursor-pointer ${
                 isActive
                   ? isDark
                     ? 'text-amber-400 font-bold'
